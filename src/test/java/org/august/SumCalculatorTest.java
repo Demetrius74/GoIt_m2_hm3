@@ -1,26 +1,38 @@
 package org.august;
 
-import org.august.SumCalculator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class SumCalculatorTest {
-    private SumCalculator calculator;
-
+class SumCalculatorTest {
+    private SumCalculator calc;
     @BeforeEach
-    public void setUp() {
-        calculator = new SumCalculator();
+    public void init(){
+        calc = new SumCalculator();
+    }
+    @Test
+    void sumParamEqualsOneTest() {
+        int expectedResult = 1;
+
+        int actualResult = calc.sum(1);
+        assertEquals(expectedResult, actualResult);
     }
 
     @Test
-    public void testSumWithPositiveInput() {
-        assertEquals(1, calculator.sum(1));
-        assertEquals(6, calculator.sum(3));
+    void sumParamEqualsTheeTest() {
+        int expectedResult = 6;
+
+        int actualResult = calc.sum(3);
+        assertEquals(expectedResult, actualResult);
     }
 
     @Test
-    public void testSumWithZeroInput() {
-        assertThrows(IllegalArgumentException.class, () -> calculator.sum(0));
+    void sumParamEqualsZeroTest(){
+        assertThrows(IllegalArgumentException.class, () -> calc.sum(0));
+    }
+
+    @Test
+    void sumParamIsNegativeTest(){
+        assertThrows(IllegalArgumentException.class, () -> calc.sum(-5));
     }
 }
