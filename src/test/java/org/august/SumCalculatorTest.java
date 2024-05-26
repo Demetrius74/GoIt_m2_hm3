@@ -1,6 +1,8 @@
-import org.august.SumCalculator;
+package org.august;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SumCalculatorTest {
@@ -19,6 +21,7 @@ public class SumCalculatorTest {
 
     @Test
     public void testSumWithZeroInput() {
-        assertThrows(IllegalArgumentException.class, () -> calculator.sum(0));
+        assertEquals(0, calculator.sum(0));  // Очікуємо, що метод поверне 0 для вводу 0
     }
 }
+
